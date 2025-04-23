@@ -1,0 +1,72 @@
+package zadanie2;
+
+public class Zadanie2 {
+
+    public static void main(String[] args) {
+        kolo g1 = new kolo(8);
+        System.out.println("Pole koła: " + g1.pole());
+        System.out.println("Obwód koła: " + g1.obwod());
+
+        kwadrat g2 = new kwadrat(2);
+        System.out.println("Pole kwadratu: " + g2.pole());
+        System.out.println("Obwód kwadratu: " + g2.obwod());
+
+        prostokat g3 = new prostokat(5, 6);
+        System.out.println("Pole prostokąta: " + g3.pole());
+        System.out.println("Obwód prostokąta: " + g3.obwod());
+    }
+}
+ abstract class figura extends Object{
+    public abstract double pole();
+    public abstract double obwod();
+}
+
+  class kolo extends figura {
+    private double promien;
+
+    public kolo() {
+        this.promien = 1;
+    }
+    public kolo(double promien) {
+        this.promien = promien;
+    }
+    public double pole() {
+        return Math.PI * Math.pow(promien, 2);
+    }
+    public double obwod() {
+        return 2 * Math.PI * promien;
+    }
+}
+ class kwadrat extends figura {
+    private double bok;
+    public kwadrat() {
+        this.bok = 1;
+    }
+    public kwadrat(double bok) {
+        this.bok = bok;
+    }
+    public double pole() {
+        return Math.pow(bok, 2);
+    }
+    public double obwod() {
+        return 4 * bok;
+    }
+}
+ class prostokat extends figura {
+    private double dlugosc;
+    private double szerokosc;
+    public prostokat() {
+        this.dlugosc = 2.0;
+        this.szerokosc = 1.0;
+    }
+    public prostokat(double dlugosc, double szerokosc) {
+        this.dlugosc = dlugosc;
+        this.szerokosc = szerokosc;
+    }
+    public double pole() {
+        return dlugosc * szerokosc;
+    }
+    public double obwod() {
+        return 2 * (dlugosc + szerokosc);
+    }
+}
