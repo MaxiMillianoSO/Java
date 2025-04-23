@@ -1,0 +1,39 @@
+package program1;
+
+import java.util.Scanner;
+
+public class Program1 {
+
+    public static void main(String[] args) {
+      Scanner scanner = new Scanner(System.in);
+        double tin = 0;
+        double min = Double.MAX_VALUE;
+        double max = Double.MIN_VALUE;
+
+        System.out.println("Program do obliczania rocznych dochodów.");
+        System.out.println("Wpisz dochód za każdy z 12 miesięcy.");
+
+        for (int m = 1; m <= 12; m++) {
+            System.out.print("Miesiąc " + m + ": ");
+            double in = scanner.nextDouble();
+            
+            tin += in;
+            if (in < min) {
+                min = in;
+            }
+            if (in > max) {
+                max = in;
+            }
+        }
+
+        double sr = tin / 12;
+        
+        System.out.println("Suma dochodów = " + tin);
+        System.out.println("Dochód średni = " + sr);
+        System.out.println("Maksymalny dochód = " + max);
+        System.out.println("Minimalny dochód = " + min);
+
+
+    }
+    
+}
