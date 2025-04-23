@@ -1,0 +1,66 @@
+package zadanie.pkg3;
+
+public class Zadanie3 {
+
+    public static void main(String[] args) {
+        Rational r1 = new Rational(-3, 10);
+        Rational r2 = new Rational(-7, 2);
+        System.out.println("Tekstowa reprezentacja 1 : " + r1);
+        System.out.println("Tekstowa reprezentacja 2 : " + r2);
+        System.out.println("Dodawanie: " + r1.add(r2));
+        System.out.println("Mnożenie: " + r1.mul(r2));
+        System.out.println("Odejmowanie: " + r1.sub(r2));
+        System.out.println("Dzielienie: " + r1.div(r2));
+        System.out.println("Równość: " + r1.equals(r2));
+        System.out.println("Porównanie: " + r1.compareTo(r2));
+    }
+}
+         class Rational {
+    private int licznik;
+    private int mianownik;
+
+    public Rational() {
+        licznik = 3;
+        mianownik = 7;
+    }
+    public Rational(int licznik, int mianownik) {
+        if (mianownik == 0) {
+        System.out.println("Mianownik musi być > 0");
+        }else {
+            this.licznik = licznik;
+            this.mianownik = mianownik;
+        }
+    }
+    public Rational add(Rational arg){
+    int newLicznik= this.licznik * arg.mianownik + arg.licznik * this.mianownik;
+    int newMianowik = this.mianownik * arg.mianownik;
+    return new Rational(newLicznik, newMianowik);
+
+    }
+    public Rational mul(Rational arg){
+        int newLicznik = this.licznik * arg.licznik;
+        int newMianownik = this.mianownik * arg.mianownik;
+        return new Rational(newLicznik,newMianownik);
+    }
+    public Rational sub(Rational arg){
+        int newLicznik = this.licznik * arg.mianownik - this.mianownik* arg.licznik;
+        int newMianownik = this.mianownik * arg.mianownik;
+        return new Rational(newLicznik, newMianownik);
+    }
+    public Rational div(Rational arg){
+        int newLicznik = this.licznik* arg.mianownik;
+        int newMianownik = this.mianownik * arg.licznik;
+        return new Rational(newLicznik, newMianownik);
+    }
+    public boolean equals(Rational arg){
+    return (double)this.licznik / (double)this.mianownik == (double)arg.licznik / (double)arg.mianownik;
+    }
+    public int compareTo(Rational arg){
+        int thisValue = this.licznik * arg.mianownik;
+        int argValue = arg.licznik * this.mianownik;
+        return Integer.compare(thisValue, argValue);
+    }
+    public String toString() {
+        return licznik + "/"+ mianownik;
+    }
+}
