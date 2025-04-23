@@ -1,0 +1,53 @@
+package program.pkg1.pkg1;
+
+import java.util.Scanner;
+
+public class Program11 {
+
+    public static void main(String[] args) {
+      double metr, cal, stope, jard, mile, sazen, milem, angst, kabl, lokc, wiorst;
+       String bufor;
+       System.out.println("Wprowadź odległość w metrach, aby przeliczyć ją na inne jednostki.");
+       while (true) {
+           Scanner klawiatura = new Scanner(System.in);
+           bufor = klawiatura.nextLine();
+       metr = Double.parseDouble(bufor);
+       if (metr < 0) {
+           System.out.println("Niestety, długość nie może być ujemna.");
+       }
+       else {
+       cal = metr * 39.3700787402 ;
+       String cal1 = String.format("%.4f", cal);
+       System.out.println("Cal = " + cal1);
+       stope = metr * 3.280839895;
+       String stope1 = String.format("%.4f", stope);
+       System.out.println("Stopę = " + stope1);
+       jard = metr * 1.093613298;
+       String jard1 = String.format("%.4f", jard);
+       System.out.println("Jard = " + jard1);
+       mile = metr / 1609;
+       String mile1 = String.format("%.4f", mile);
+       System.out.println("Milę lądową = " + mile1); 
+       sazen = metr / 1.728;
+       String sazen1 = String.format("%.4f", sazen);
+       System.out.println("Sążeń = " + sazen1);
+       milem = metr * 0.0005399568;
+       String milem1 = String.format("%.4f", milem);
+       System.out.println("Mile morskie = " + milem1);
+       angst = metr * Math.pow(10, -10);
+       System.out.println("Angstremy = " + angst);
+       kabl = metr / 185.2;
+       String kabl1 = String.format("%.4f", kabl);
+       System.out.println("Kabel = " + kabl1);
+       lokc = metr * 0.6096;
+       String lokc1 = String.format("%.4f", lokc);
+       System.out.println("Łokiec = " + lokc1);
+       wiorst = metr / 1064.5;
+       String wiorst1 = String.format("%.4f", wiorst);
+       System.out.println("Wiorsty = " + wiorst1);
+       }
+       System.out.println("Jeśli chcesz kontynuować, wpisz nową liczbę metrów.");
+    }
+    
+}
+}
