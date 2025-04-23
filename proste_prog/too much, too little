@@ -1,0 +1,43 @@
+package program.pkg1.pkg4;
+
+import java.util.Random;
+import java.util.Scanner;
+
+public class Program14 {
+
+    public static void main(String[] args) {
+         int a, b, sp = 0;
+          Scanner klawiatura = new Scanner(System.in);
+        System.out.println("Witam! To gra 'za dużo, za mało'. Program poda ci liczbę, którą musisz odgadnąć, postępując zgodnie z określonymi wskazówkami.");
+        while (true) {
+                 Random r = new Random();
+        b = r.nextInt(1000);
+        System.out.println("Jaką liczbę odgadł program? (od 0 do 1000)");
+         while (true) {
+        String bufor = klawiatura.nextLine();
+        try {
+        a = Integer.parseInt(bufor);
+        } catch (NumberFormatException e) {
+        System.out.println("Wprowadzona wartość nieliczbowa. Spróbuj ponownie.");
+         continue;
+}
+        sp++;
+        if (a < b) {
+            System.out.println("Twoja wartość jest za mała.Spróbuj ponownie.");
+        } else if (a > b){
+            System.out.println("Twoja wartość jest za duża.Spróbuj ponownie.");
+        }
+        else {
+            System.out.println("Gratulacje, odgadłeś liczbę!");
+            break;
+        }
+    }
+         System.out.println("Liczba sprób: " + sp);
+          System.out.println("Jeśli chcesz spróbować jeszcze raz, wpisz dowolny znak. Jeśli nie, wpisz 'nie'");
+            String odp = klawiatura.next();
+            if (odp.equalsIgnoreCase("nie")) {
+                break;        
+            }
+            }
+        }
+    }
