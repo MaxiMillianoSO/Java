@@ -1,0 +1,52 @@
+package program2;
+
+import java.util.Scanner;
+
+public class Program2 {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+         double tin = 0;
+        double min = 0;
+        double max = 10;
+     System.out.println("Program do obliczania wyników sędziów.");
+     System.out.println("Wpisz wynik dla każdego z 10 sędziów. (od 0 do 10)");
+     while (true) {
+     for (int s = 1; s <= 10; s++) {
+         boolean vin = false;
+         while (!vin) {
+         System.out.println("Sędzia " + s + ":");
+         double w;
+         try {
+             w = scanner.nextDouble();
+             if (w < 0 || w > 10) {
+             System.out.println("Wprowadzona wartość nieprawidłowa. Spróbuj ponownie.");
+         } else {
+                 vin = true;
+                tin += w;
+            if (w < min && w >= 0) {
+                min = w;
+            }
+            if (w > max && w <= 10) {
+                max = w;
+            }   
+        }    
+     } catch (Exception e) {
+         System.out.println("Wprowadzona wartość nieprawidłowa. Spróbuj ponownie.");
+             scanner.next();
+     }
+     }
+     }
+     double sr = (tin - (min + max)) / 8;
+     System.out.println("Ocena średnia = " + sr);
+     
+      System.out.println("jeśli chcesz obliczyć następujący wynik, wpisz dowolny znak. Jeśli nie, wpisz 'nie'");
+            String odp = scanner.next();
+            if (odp.equalsIgnoreCase("nie")) {
+                break;        
+            }
+    }
+    
+    }
+    
+}
