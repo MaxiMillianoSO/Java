@@ -1,1 +1,245 @@
 
+int - для цілого числа
+double - для десяткового дробу (число з крапочкою)
+string - буковки (з лапками)
+char - 1 символ
+System.out - щоб вивести код
+
+System - бібліотека або простір імен (сукупність різних методів класів і функцій)
+out - клас 👍
+println - метод виведення чогось (текст і тд) в консоль
+Math.pow (число х ((яке задаємо)), у ((степінь))
+if (умова) інструкція
+!= - це нерівно
+&& - "і"
+
+return aa > bb ? aa : bb;
+
+Оператори порівняння:
+
+==: Перевірка на рівність.
+>: Більше ніж.
+<: Менше ніж.
+>=: Більше або дорівнює.
+<=: Менше або дорівнює.
+Логічні оператори:
+
+&&: Логічне "І" (and).
+||: Логічне "АБО" (or).
+!: Логічне "НЕ" (not).
+Оператори присвоєння:
+
+=: Присвоєння значення змінній.
++=: Додавання і присвоєння.
+-=: Віднімання і присвоєння.
+*=: Множення і присвоєння.
+/=: Ділення і присвоєння.
+%=: Остача від ділення і присвоєння.
+Інші оператори:
+
+?:: Тернарний оператор (умовний оператор), який дозволяє вибрати одне з двох значень залежно від умови.
+instanceof: Перевіряє, чи об'єкт є екземпляром певного класу.
+
+
+ int a, b, c;
+        a = 10;
+        b = 3;
+        System.out.println("a : " + a + ", b : " + b);
+
+
+ int a, b, c;
+        a = 10;
+        b = 4 - 1;
+        System.out.println("a : " + a + ", b : " + b);
+        c = a + b;
+            System.out.println("Suma = " + c);
+            c = a - b;
+            System.out.println("Różnica = " + c);
+            c = a * b;
+            System.out.println("Iloczyn = " + c);
+            c = a / b;
+            System.out.println("Iloraz = " + c);
+            c = a % b;
+            System.out.println("Reszta = " + c);
+
+
+ double droga, czas, predkosc;
+     droga =  200;
+     czas = 2;
+     predkosc = droga / czas;
+     System.out.println("Pojazd porusza się z predkością :" + predkosc);
+
+
+
+
+ double droga, czas, predkosc;
+     String bufor;
+     bufor = JOptionPane.showInputDialog(null, "Podaj przebytą drogę w km");
+     droga =  Double.parseDouble(bufor);
+     bufor = JOptionPane.showInputDialog(null, "Podaj czas w godzinach");
+     czas = Double.parseDouble(bufor);
+     predkosc = droga / czas;
+//     System.out.println("Pojazd porusza się z predkością :" + predkosc);
+        JOptionPane.showMessageDialog(null, "Pojazd porusza się z predkością :" + predkosc + "km/h");
+
+
+
+     double droga, czas, predkosc;
+     String bufor;
+     bufor = JOptionPane.showInputDialog(null, "Podaj przebytą drogę w km");
+     droga =  Double.parseDouble(bufor);
+     bufor = JOptionPane.showInputDialog(null, "Podaj ile litrów zużyto");
+     czas = Double.parseDouble(bufor);
+     predkosc = czas / droga * 100;
+        JOptionPane.showMessageDialog(null, "Samochód wykorzystaje :" + predkosc + "1/100km");
+
+
+
+
+import java.util.Scanner;
+public class Main {
+
+ 
+    public static void main(String[] args) {
+   double bok, pole;
+   String bufor; 
+   System.out.println("Podaj bok kwadratu : ");
+   Scanner klawiatura = new Scanner(System.in);
+   bufor = klawiatura.nextLine();
+   bok = Double.parseDouble(bufor);
+   pole = bok * bok;
+   System.out.println("Pole kwadratu = " + pole);
+
+
+
+
+package pkg2;
+import java.util.Scanner;
+public class Main {
+
+ 
+    public static void main(String[] args) {
+   double bok, pole;
+   String bufor; 
+   System.out.println("Podaj bok kwadratu : ");
+   Scanner klawiatura = new Scanner(System.in);
+//   bufor = klawiatura.nextLine();
+//   bok = Double.parseDouble(bufor);
+    bok = klawiatura.nextDouble();
+   pole = bok * bok;
+   System.out.println("Pole kwadratu = " + pole);
+
+
+package pkg2;
+import java.util.Scanner;
+public class Main {
+
+ 
+    public static void main(String[] args) {
+   double radius, pole, obwod;
+   String bufor; 
+   System.out.println("Podaj radius koła : ");
+   Scanner klawiatura = new Scanner(System.in);
+    bufor = klawiatura.nextLine();
+     radius = Double.parseDouble(bufor);
+   pole = Math.PI * Math.pow(radius, 2);
+   obwod = 2 * Math.PI * radius;
+   System.out.println("Pole koła = " + pole);
+   System.out.println("Obwód koła = " + obwod);
+
+
+
+if (5 < 7) {
+            System.out.println("Warunek jest prawdziwy");
+        } else {
+            System.out.println("Warunek jest fałszywy");
+        }
+
+
+
+package pkg2;
+import java.util.Scanner;
+public class Main {
+
+ 
+    public static void main(String[] args) {
+       double masa, wzrost, bmi;
+       String bufor;
+       System.out.println("Napisz swoję masę : ");
+   Scanner klawiatura = new Scanner(System.in);
+   bufor = klawiatura.nextLine();
+   masa = Double.parseDouble(bufor);
+   System.out.println("Napisz swój wzrost : ");
+   bufor = klawiatura.nextLine();
+   wzrost = Double.parseDouble(bufor);
+   bmi = masa / Math.pow(wzrost, 2);
+   System.out.println(bmi);
+   if (bmi < 18) {
+       System.out.println("Jesteś za wysoki");
+   } 
+   else if (bmi > 25) {
+           System.out.println("Jesteś za niski"); }
+        else {
+           System.out.println("Jesteś przecięty");
+       }
+
+
+
+
+
+Randomna cyfra:
+import java.util.Random;
+
+public class Zajęcie3 {
+
+    public static void main(String[] args) {
+        Random r = new Random();
+        double losowa1 = r.nextDouble();
+        System.out.println("Wylosowano : " + losowa1);
+        losowa1 *= 100;
+        losowa1 = Math.round(losowa1);
+        losowa1 /= 100;
+        System.out.println("Wylosowano : " + losowa1);
+        int losowa2 = r.nextInt();
+        System.out.println("Wylosowano : " + losowa2);
+        int losowa3 = r.nextInt(100);
+        System.out.println("Wylosowano : " + losowa3);
+
+pętla:
+        System.out.println("Początek");
+        int a = 0, b = 5;
+        do {
+            a += 1;
+           System.out.println("Instrikcja w pętli : " + a);
+        } while (a < b);
+        System.out.println("Koniec");
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+      System.out.println("Początek");
+        int a = 0, b = 15;
+        do {
+            a += 1;
+            if (a == 3) continue;
+           System.out.println("Instrikcja w pętli : " + a);
+           if (a == 10) break;
+        } while (a < b);
+        System.out.println("Koniec");
+
+
+
+randomna liczba:
+import java.util.Random;
+
+public class Zajęcie3 {
+
+    public static void main(String[] args) {
+        Random r = new Random();
+        double losowa1 = r.nextDouble();
+        System.out.println("Wylosowano : " + losowa1);
+        losowa1 *= 100;
+        losowa1 = Math.round(losowa1);
+        losowa1 /= 100;
+        System.out.println("Wylosowano : " + losowa1);
+        int losowa2 = r.nextInt();
+        System.out.println("Wylosowano : " + losowa2);
+        int losowa3 = r.nextInt(100);
+        System.out.println("Wylosowano : " + losowa3);
