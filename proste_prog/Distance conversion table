@@ -1,0 +1,27 @@
+package program.pkg1.pkg2;
+
+import java.util.Scanner;
+
+public class Program12 {
+
+    public static void main(String[] args) {
+     Scanner scanner = new Scanner(System.in);
+        System.out.print("Wpisz wartość początkową w metrach: ");
+        int start = scanner.nextInt();
+        System.out.print("Wpisz wartość końcową w metrach: ");
+        int end = scanner.nextInt();
+        System.out.print("Podaj krok zwiekszania dlugosci w metrach: ");
+        int step = scanner.nextInt();
+
+        System.out.println("Tabela przeliczania odległości:");
+        System.out.println("Metry\t\tCale\t\tStopy\t\tJardy\t\tMile");
+        for (int i = start; i <= end; i += step) {
+            double cale = i * 39.37;
+            double stope = i * 3.281;
+            double jardy = i * 1.094;
+            double mile = i * 0.00062137;
+            System.out.printf("%d\t\t%.2f\t\t%.2f\t\t%.2f\t\t%.2f\n", i, cale, stope, jardy, mile);
+            }
+        }
+
+    }
