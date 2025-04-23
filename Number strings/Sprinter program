@@ -1,0 +1,58 @@
+package program3;
+
+import java.util.Scanner;
+
+public class Program3 {
+
+    public static void main(String[] args) {
+     Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Wpisz wynik dla obliczenia najlepszego i najgorzego czasu, a także średni czas.");
+        
+        while (true) {
+            double min = Double.MAX_VALUE;
+            double max = Double.MIN_VALUE;
+            double tcz = 0;
+            double sr = 0;
+
+            for (int p = 1; p <= 1000000; p++) {
+
+                while (true) {
+                    System.out.print("Próba " + p + ": ");
+                    double cz = scanner.nextDouble();
+
+                    if (cz >= 0) {
+                        tcz += cz;
+                        if (cz < min) {
+                            min = cz;
+                        }
+                        if (cz > max) {
+                            max = cz;
+                        }
+                        sr = tcz / p;
+                        break;
+                    } else {
+                        System.out.println("Czas nie może być ujemnym. Spróbuj ponownie.");
+                    }
+                }
+
+                System.out.println("Jeśli chcesz kontynuować, wpisz dowolny symbol, jeśli nie, wpisz 'nie'");
+                String odp = scanner.next();
+                if (odp.equalsIgnoreCase("nie")) {
+                    break;
+                }
+            }
+
+            System.out.println("Najlepszy wynik = " + max);
+            System.out.println("Najgorszy wynik = " + min);
+            System.out.println("Średni czas = " + sr);
+            
+            System.out.println("jeśli chcesz wprowadzić nowe dane, wpisz dowolny symbol, jeśli nie, wpisz 'nie'");
+            String decyzja = scanner.next();
+            if (decyzja.equalsIgnoreCase("Nie")) {
+                break;
+            }
+        }
+        scanner.close();
+    }
+}
