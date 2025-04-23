@@ -1,0 +1,58 @@
+package program.pkg1.pkg3;
+
+import java.util.Scanner;
+
+public class Program13 {
+
+    public static void main(String[] args) {
+         System.out.println("Witam, jestem prostym kalkulatorem! Wprowadź pierwszą liczbę.");
+          while (true) {
+        Scanner klawiatura = new Scanner(System.in);
+        double a, b, c;
+        try {
+            String bufor = klawiatura.nextLine();
+        a = Double.parseDouble(bufor);
+        } catch (NumberFormatException e) {
+            System.out.println("Wprowadzono nieprawidłową liczbу. Spróbuj ponownie. Wprowadź pierwszą liczbę.");
+            continue;
+        }
+        System.out.println("Teraz wybierz symbol arytmetyczny: +, -, *, /.");
+        String r = klawiatura.next();
+        char symbol = r.charAt(0);
+        System.out.println("Teraz wprowadź drugą liczbę.");
+        try {
+            String bufor2 = klawiatura.next();
+        b = Double.parseDouble(bufor2);
+        } catch (NumberFormatException e) {
+            System.out.println("Wprowadzono nieprawidłową liczbу. Spróbuj ponownie. Wprowadź pierwszą liczbę.");
+            continue;
+        }
+        switch (symbol) {
+            case '+' -> c = a + b;
+            case '-' -> c = a - b;
+            case '*' -> c = a * b;
+            case '/' -> {
+                if (b != 0) {
+                    c = a / b;
+                } else {
+                    System.out.println("Niestety, nie można dzielić przez zero. Spróbuj ponownie. Wprowadź pierwszą liczbę.");
+                    continue;
+                }
+            }
+            default -> {
+                System.out.println("Wprowadzono nieprawidłowy symbol. Spróbuj ponownie. Wprowadź pierwszą liczbę.");
+                continue;
+            }
+        }
+
+        System.out.println("Wynik: " + c);
+        System.out.println("jeśli chcesz kontynuować, wpisz dowolny znak, jeśli nie, wpisz 'nie'");
+        String odp = klawiatura.next();
+        if (odp.equalsIgnoreCase("nie")) {
+           break;
+        } else {
+           System.out.println("Wprowadź pierwszą liczbę.");
+        }
+    }
+}
+}
