@@ -1,0 +1,70 @@
+package zadanie1;
+
+import javax.swing.JOptionPane;
+
+
+public class Zadanie1 {
+
+    
+    public static void main(String[] args) {
+        Samochod g1 = new Samochod();
+        System.out.println("Maksymalna prędkość samochodu = " + g1.getvMax() + " km/g");
+        System.out.println("Paliwo w zbiorniku = " + g1.getPaliwoWZbiorniku() + " L");
+        System.out.println("Zużycie paliwa na 100km = " + g1.getZuzycieNa100km() + " L");
+        System.out.println("Zasięg samochodu = " + g1.zasieg() + " km");
+        System.out.println("Czas dojazdu = " + g1.czasDojazdu(150) + " godzin");
+        System.out.println();
+        g1.zatankuj();
+        System.out.println("Ilość paliwa po zatankowaniu = " + g1.getPaliwoWZbiorniku() + " L");
+        System.out.println("Zasięg samochodu = " + g1.zasieg() + " km");
+        System.out.println();
+        g1.trasa();
+        System.out.println("Po przejechaniu tej liczby kilometrów masz " + g1.paliwoWZbiorniku + " L");
+        System.out.println("Zasięg samochodu = " + g1.zasieg() + " km");
+    }
+    
+}
+class Samochod extends Object{
+    protected int vMax = 100;
+    protected double paliwoWZbiorniku = 35;
+    protected double zuzycieNa100km = 4.1;
+    public double zasieg() {
+        return (getPaliwoWZbiorniku() * 100)/zuzycieNa100km;
+    }
+    public double czasDojazdu(double dystans) {
+        return dystans / (getvMax()*0.75);
+    }
+    public void zatankuj() {
+        String bufor;
+        bufor = JOptionPane.showInputDialog("Ile paliwa chcesz zatankować? (w zbiorniku może być do 75 L paliwa)");
+            double ilePaliwaZatankowano = Double.parseDouble(bufor);
+            if ((ilePaliwaZatankowano + getPaliwoWZbiorniku()) > 75) {
+                System.out.println("To jest za dużo, więc masz po prostu pełny zbiornik");
+                paliwoWZbiorniku = 75;
+            } else {
+                paliwoWZbiorniku += ilePaliwaZatankowano;
+            }
+        
+    }
+    public void trasa() {
+    String bufor;
+        bufor = JOptionPane.showInputDialog("Ile kilometrów chcesz przejechać?");
+        double liczbaKilometrów = Double.parseDouble(bufor);
+        paliwoWZbiorniku -= (liczbaKilometrów * zuzycieNa100km) / 100; 
+}
+
+
+    public int getvMax() {
+        return vMax;
+    }
+
+
+    public double getPaliwoWZbiorniku() {
+        return paliwoWZbiorniku;
+    }
+
+
+    public double getZuzycieNa100km() {
+        return zuzycieNa100km;
+    }
+}
