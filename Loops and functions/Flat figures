@@ -1,0 +1,87 @@
+package zad1;
+
+import java.util.Scanner;
+
+public class Zad1 {
+    static Scanner scanner = new Scanner (System.in);
+    public static void main(String[] args) {
+      
+        System.out.println("Witam! Ja mogę obliczyć pole i obwód wybranych figur płaskich: kwadratu, prostokąta, koła, trójkąta i trapezu.");
+        while(true) {
+        menu();
+        System.out.println("Wybierz opcję");
+        int wyb = scanner.nextInt();
+        switch (wyb) {
+            case 1:
+              kwadrat();  
+              break;
+            case 2:
+                prostokąt();
+                break;
+            case 3:
+                koło();
+                break;
+            case 4:
+                trójkąt();
+                break;
+            case 5:
+                trapeza();
+                break;
+            case 6:
+                System.out.println("Do widzenia!");
+                System.exit(0);
+            default:
+                System.out.println("Nieprawidłowa liczba. Sprobój jeszcze raz.");
+        }
+        }
+    }
+    public static void menu(){
+        System.out.println("Kwadrat - 1");
+        System.out.println("Prostokąt - 2");
+        System.out.println("Koło - 3");
+        System.out.println("Trójkąt - 4");
+        System.out.println("Trapeza - 5");
+        System.out.println("Koniec - 6");
+    }
+    public static void kwadrat(){
+        System.out.println("Proszę wpisać bok kwadratu.");
+        int a = scanner.nextInt();
+        System.out.println("Pole = " + a*a +", obwód = " + a*4);
+    }
+    public static void prostokąt(){
+        System.out.println("Proszę wpisać pierwszy bok prostokąta.");
+        int a = scanner.nextInt();
+        System.out.println("Proszę wpisać drugi bok prostokąta.");
+        int b = scanner.nextInt();
+        System.out.println("Pole = " + a*b +", obwód = " + (a+b)*2);
+    }
+    public static void koło(){
+        System.out.println("Proszę wpisać promień koła.");
+        double r = scanner.nextInt();
+        System.out.println("Pole = " + r*r*Math.PI +", obwód = " + 2*Math.PI*r);
+    }
+    public static void trójkąt(){
+        System.out.println("Proszę wpisać pierwszy bok trójkąta.");
+        double a = scanner.nextInt();
+        System.out.println("Proszę wpisać drugi bok trójkąta.");
+        double b = scanner.nextInt();
+        System.out.println("Proszę wpisać trzeci bok trójkąta.");
+        double c = scanner.nextInt();
+        double s = (a + b + c) / 2;
+        double pole = Math.sqrt(s*(s-a)*(s-b)*(s-c));
+        System.out.println("Pole = " + pole +", obwód = " + s*2);
+    }
+    public static void trapeza(){
+        System.out.println("Proszę wpisać pierwszą podstawę trapezu");
+        double a = scanner.nextInt();
+        System.out.println("Proszę wpisać drugą podstawę trapezu");
+        double b = scanner.nextInt();
+        System.out.println("Proszę wpisać wysokość trapezu");
+        double c = scanner.nextInt();
+        System.out.println("Proszę wpisać pierwszy bok trapezu");
+        double d = scanner.nextInt();
+        System.out.println("Proszę wpisać drugi bok trapezu");
+        double e = scanner.nextInt();
+        System.out.println("Pole = " + (a+b)/2*c +", obwód = " + (a+b+d+e));
+    }
+    }
