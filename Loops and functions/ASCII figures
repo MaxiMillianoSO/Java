@@ -1,0 +1,110 @@
+package zad2;
+
+import java.util.Scanner;
+
+
+public class Zad2 {
+    static Scanner scanner = new Scanner(System.in);
+    public static void main(String[] args) {
+        System.out.println("Witam! Umiem rysować jigurę z gwiazd.");
+        menu();
+        int wyb = scanner.nextInt();
+        switch (wyb) {
+            case 1:
+              kwadrat(5);  
+              break;
+            case 2:
+                trójkąt1(5);
+                break;
+            case 3:
+                trójkąt2(5);
+                break;
+            case 4:
+                ramka1(5);
+                break;
+            case 5:
+                ramka2(5);
+                break;
+            case 6:
+                piramidka(5);
+                break;
+            case 7:
+                System.out.println("Do widzenia!");
+                System.exit(0);
+            default:
+                System.out.println("Nieprawidłowa liczba. Sprobój jeszcze raz.");
+        }
+    }
+    public static void menu() {
+        System.out.println("Wybierz figurę:");
+        System.out.println("Kwadrat - 1");
+        System.out.println("Trójkąt(1) - 2");
+        System.out.println("Trókąt(2) - 3");
+        System.out.println("Ramka - 4");
+        System.out.println("Ramka z przekątnymi - 5");
+        System.out.println("Piramidka - 6");
+        System.out.println("Koniec - 7");
+    }
+    public static void kwadrat(int rozm) {
+        for (int i = 0; i < rozm; i++) {
+            for (int w = 0; w < rozm; w++) {
+                System.out.print("* ");
+            }
+            System.out.println();
+        }
+    }
+    public static void trójkąt1(int rozm) {
+        for (int i = 0; i < rozm; i++) {
+            for(int w = 0; w < i + 1; w++){
+                System.out.print("*");
+            }   
+           System.out.println(); 
+        }
+    }
+    public static void trójkąt2(int rozm){
+         for (int i = 0; i < rozm; i++) {
+             for (int w = 0; w < rozm - i - 1; w++) {
+                System.out.print(" ");
+            }
+            for (int w = 0; w < i + 1; w++) {
+                System.out.print("*");
+            }
+            System.out.println(); 
+        }
+    }
+    public static void ramka1(int rozm){
+       for (int i = 0; i < rozm; i++) {
+            for (int w = 0; w < rozm; w++) {
+                if (i == 0 || i == rozm - 1 || w == 0 || w == rozm -1) {
+                System.out.print("* ");
+                } else {
+                    System.out.print("  ");
+                }
+                }
+            System.out.println();
+        } 
+    }
+    public static void ramka2(int rozm){
+        for (int i = 0; i < rozm; i++) {
+            for (int w = 0; w < rozm; w++) {
+               if (i == 2 && w == 1 || i == 1 && w == 2 || i == 3 && w == 2 || i == 2 && w == 3) {
+                    System.out.print("  ");
+                } else {
+                    System.out.print("* ");
+                }
+                }
+            System.out.println();
+        } 
+    }
+    public static void piramidka(int rozm){
+         for (int i = 0; i < rozm; i++) {
+             for (int w = 0; w < rozm - i - 1; w++) {
+                System.out.print(" ");
+            }
+            for (int w = 0; w < 2 * i + 1; w++) {
+                System.out.print("*");
+            }
+            System.out.println(); 
+        }
+    }
+}
